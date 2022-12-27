@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row justify-content-md-center p-4">
+    <h1>Gif Galery</h1>
+  </div>
+  <div class="row justify-content-md-center p-2">
+    <div class="col-8">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Gifs URL"
+          aria-label="Recipient's username"
+          aria-describedby="button-addon2"
+          [(ngModel)]="newGif.url"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            id="button-addon2"
+            (click)="saveGif()"
+           
+          >
+            Agregar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="div" *ngIf="true">
+    <div class="gifs" *ngFor="let item of gifList">
+        <div class="row justify-content-md-center p-2">
+          <div class="text-center">
+            <img
+              [src]="item.url"
+              class="rounded"
+              alt="..."
+              width="100%"
+            />
+          </div>
+        </div>
+        <div class="row justify-content-md-center p-2">
+            <button class="btn btn-primary" (click)="deleteGif(item)" [name]="item.id"
+            >Eliminar</button>
+        </div>
+      </div>
+  </div>
+  <div class="text-align-center" *ngIf="noExisteGif">
+        <h1>NO POSEE GIFS</h1>
+  </div>
+  
+</div>
